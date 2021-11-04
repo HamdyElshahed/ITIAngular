@@ -1,0 +1,16 @@
+    <div class="item-medium-1__alert">Sale</div>
+    <div class="item-medium-1__image image" [style.backgroundImage] = "'url('+product.imgurl[0]+')'">
+      <a href="#" class="item-medium-1__action" (click)="senddata(product)" >Add to Cart</a>
+    </div>
+    <a [routerLink]="'/product/details/'+product.id">
+      <h4>{{product.basicdata[0].name}}</h4>
+      <div>
+        <del *ngIf="product.discount" >${{product.discount}}</del>
+        <span class="lable">{{getprice() | currency:'EGP'}}</span>
+      </div>
+    </a>
+    <div class="crud-actions">
+      <a href="#"><i class="far fa-eye"></i></a>
+      <a href="#" [routerLink]="'/product/edit/'+product.id" ><i class="fas fa-edit"></i></a>
+      <a href="#" (click)="deletepd()" ><i class="fas fa-trash-alt"></i></a>
+    </div>

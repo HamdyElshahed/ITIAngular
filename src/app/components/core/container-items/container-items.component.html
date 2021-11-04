@@ -1,0 +1,37 @@
+        <!-- tools (sorting , change view , exporting) -->
+          <!-- <app-aside class="filters"></app-aside> -->
+          <div class="container">
+            <app-aside class="filters"></app-aside>
+            <div class="item-listing">
+
+              <div class="item-listing__tools">
+                  <select class="form-control" name="" id="">
+                      <option value="1">Featured</option>
+                      <option value="2">Price low to high</option>
+                      <option value="3">Price high to low</option>
+                      <option value="4">Name</option>
+                  </select>
+                  <a class="action-btn" [routerLink]="'product/add'">
+                      <i class="fas fa-plus"></i>
+                  </a>
+              </div>
+              <!-- items -->
+              <div class="item-listing__items item-listing--3items">
+                  <!-- medium item -->
+                  <app-item *ngFor="let item of arrayview" [product]="item"  class="item-medium-1"></app-item>
+                </div>
+                <!-- paging -->
+              <div class="paging">
+                  <!-- left arrow -->
+                  <div class="paging__arrow">
+                    <i class="fas fa-angle-left" (click)="paging(currentpage-1)"></i>
+                  </div>
+                  <!-- page number -->
+                  <div class="paging__number active" [ngClass]="{'active':currentpage == i}" *ngFor="let item of npagesarr , let i = index" (click)="paging(i)">{{item}} </div>
+                  <!-- right arrow -->
+                  <div class="paging__arrow" (click)="paging(currentpage+1)">
+                    <i class="fas fa-angle-right"></i>
+                  </div>
+                </div>
+            </div>
+          </div>
